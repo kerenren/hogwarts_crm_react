@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import Rating from "react-rating"
+import Rating from "react-rating";
+import { CListGroupItem, CRow, CCol } from "@coreui/react";
 
 const skills = [
   {
@@ -33,35 +34,38 @@ const skills = [
   },
 ];
 
-
 const Skill = () => {
   return (
-    <div>
+    <CListGroupItem>
       {skills.map((skill) => {
         return (
-          <div key={uuidv4()}>
-            <h6>{skill.name}</h6>
-            <Rating
-              emptySymbol={
-                <img
-                  src="/images/magic-wand-empty.png"
-                  className="icon"
-                  alt="empty skill rating icon"
-                />
-              }
-              fullSymbol={
-                <img
-                  src="/images/magic-wand-full.png"
-                  className="icon"
-                  alt="full skill rating icon"
-                />
-              }
-              initialRating={skill.level}
-            />
-          </div>
+          <CRow key={uuidv4()}>
+            <CCol>
+              <h6>{skill.name}</h6>
+            </CCol>
+            <CCol>
+              <Rating
+                emptySymbol={
+                  <img
+                    src="/images/magic-wand-empty.png"
+                    className="icon ml-2"
+                    alt="empty skill rating icon"
+                  />
+                }
+                fullSymbol={
+                  <img
+                    src="/images/magic-wand-full.png"
+                    className="icon ml-2"
+                    alt="full skill rating icon"
+                  />
+                }
+                initialRating={skill.level}
+              />
+            </CCol>
+          </CRow>
         );
       })}
-    </div>
+    </CListGroupItem>
   );
 };
 
