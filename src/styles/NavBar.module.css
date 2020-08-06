@@ -1,0 +1,11 @@
+.NavBar {
+    background: linear-gradient(225deg, #BD7AE3 0%, #8461C9 100%);
+}
+
+.SearchBtn {
+    color: #6979F8;
+    background: #ffffff;
+    border: 2px solid #6979F8;
+    box-sizing: border-box;
+    border-radius: 6px;
+}

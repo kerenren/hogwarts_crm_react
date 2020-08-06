@@ -1,0 +1,12 @@
+.Edit {
+    color: #BE52F2;
+    background: #EEDFF2;
+    border-radius: 16px;
+    border: 1px solid #DBA5F5;
+    box-shadow: #6979F8;
+}
+
+.Edit:hover {
+    background: linear-gradient(225deg, #BD7AE3 0%, #8461C9 100%);
+    color: #FFFFFF;
+}

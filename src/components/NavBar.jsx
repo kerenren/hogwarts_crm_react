@@ -14,24 +14,31 @@ import {
   CInput,
   CButton,
 } from "@coreui/react";
+import styles from "../styles/NavBar.module.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // path to profile: /students/<string:student_email => user email is required
+
   return (
-    <CNavbar expandable="sm" color="info">
+    <CNavbar expandable="sm" className={styles.NavBar}>
       <CToggler inNavbar onClick={() => setIsOpen(!isOpen)} />
-      <CNavbarBrand>Hogwarts CRM</CNavbarBrand>
+      <CNavbarBrand href="/dashboard">Hogwarts CRM</CNavbarBrand>
       <CCollapse show={isOpen} navbar>
         <CNavbarNav>
-          <CNavLink>Home</CNavLink>
+          <CNavLink href="/dashboard">Home</CNavLink>
           <CNavLink>Profile</CNavLink>
         </CNavbarNav>
         <CNavbarNav className="ml-auto">
           <CForm inline>
             <CInput className="mr-sm-2" placeholder="Search" size="sm" />
-            <CButton color="light" className="my-2 my-sm-0" type="submit">
-              Search
+            <CButton
+              className="my-2 my-sm-0"
+              className={styles.SearchBtn}
+              type="submit"
+            >
+              <i className="fas fa-search"></i>
             </CButton>
           </CForm>
           <CDropdown inNav>
@@ -43,10 +50,12 @@ const Navbar = () => {
           <CDropdown inNav>
             <CDropdownToggle color="primary">User</CDropdownToggle>
             <CDropdownMenu>
-              <CDropdownItem>Sign up</CDropdownItem>
-              <CDropdownItem>Login</CDropdownItem>
+              <CDropdownItem href="/admin/signup">Sign up</CDropdownItem>
+              <CDropdownItem href="/admin/log_in">Login</CDropdownItem>
               <CDropdownItem>Logout</CDropdownItem>
-              <CDropdownItem>Edit profile</CDropdownItem>
+              <CDropdownItem href="/admin/edit_student">
+                Edit profile
+              </CDropdownItem>
             </CDropdownMenu>
           </CDropdown>
         </CNavbarNav>

@@ -8,6 +8,7 @@ export default function DashBoard() {
     <>
       <AllStudents />
       <div className={styles.PieChartContainer}>
+        <h5>Desired Skills Popularity</h5>
         <DesiredSkillsPieChart data={data} />
       </div>
     </>
