@@ -7,6 +7,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import AddStudent from "./pages/AddStudent";
 import EditStudent from "./pages/EditStudent";
+import DashBoard from "./pages/DashBoard";
 
 const loading = (
   <div className="pt-3 text-center">
@@ -24,6 +25,7 @@ function App() {
           <Route path="/admin/signup" component={SignUp} />
           <Route path="/admin/add_student" component={AddStudent} />
           <Route path="/admin/edit_student" component={EditStudent} />
+          <Route path="/dashboard" component={DashBoard} />
         </Switch>
       </Router>
     </div>

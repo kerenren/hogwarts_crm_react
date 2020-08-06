@@ -25,7 +25,7 @@ export default function ProfileForm() {
               <CInputGroup>
                 <CInputGroupPrepend>
                   <CInputGroupText>
-                    <i class="fas fa-hat-wizard"></i>
+                    <i className="fas fa-hat-wizard"></i>
                   </CInputGroupText>
                 </CInputGroupPrepend>
                 <CInput
@@ -41,7 +41,7 @@ export default function ProfileForm() {
               <CInputGroup>
                 <CInputGroupPrepend>
                   <CInputGroupText>
-                    <i class="fas fa-broom"></i>
+                    <i className="fas fa-broom"></i>
                   </CInputGroupText>
                 </CInputGroupPrepend>
                 <CInput
@@ -57,7 +57,7 @@ export default function ProfileForm() {
               <CInputGroup>
                 <CInputGroupPrepend>
                   <CInputGroupText>
-                    <i class="far fa-envelope"></i>
+                    <i className="far fa-envelope"></i>
                   </CInputGroupText>
                 </CInputGroupPrepend>
                 <CInput
