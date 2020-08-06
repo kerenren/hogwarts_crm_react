@@ -5,6 +5,8 @@ import "./scss/style.scss";
 import NavBar from "./components/NavBar";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import AddStudent from "./pages/AddStudent";
+import EditStudent from "./pages/EditStudent";
 
 const loading = (
   <div className="pt-3 text-center">
@@ -16,14 +18,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar></NavBar>
+        <NavBar />
         <Switch>
-          <Route path="/admin/log-in">
-            <Login />
-          </Route>
-          <Route path="/admin/signup">
-            <SignUp />
-          </Route>
+          <Route path="/admin/log_in" component={Login} />
+          <Route path="/admin/signup" component={SignUp} />
+          <Route path="/admin/add_student" component={AddStudent} />
+          <Route path="/admin/edit_student" component={EditStudent} />
         </Switch>
       </Router>
     </div>

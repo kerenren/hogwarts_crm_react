@@ -1,2 +1,11 @@
 import React from "react"
-// todo: import ProfileForm
+import ProfileForm from "../components/ProfileForm"
+
+
+export default function EditStudent() {
+    return (
+      <div>
+        <ProfileForm />
+      </div>
+    );
+  }

@@ -1,2 +1,6 @@
 import React from "react"
-// todo: import Skill
+import Skill from "./Skill"
+
+export default function ExistingSkills() {
+    return <Skill />;
+  }
