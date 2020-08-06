@@ -34,7 +34,6 @@ const Navbar = () => {
           <CForm inline>
             <CInput className="mr-sm-2" placeholder="Search" size="sm" />
             <CButton
-              className="my-2 my-sm-0"
               className={styles.SearchBtn}
               type="submit"
             >

@@ -16,13 +16,19 @@ const loading = (
 );
 
 function App() {
+  const onCreateAdmin = (newAdmin) => {
+    console.log("newAdmin", newAdmin);
+  };
   return (
     <div className="App">
       <Router>
         <NavBar />
         <Switch>
           <Route path="/admin/log_in" component={Login} />
-          <Route path="/admin/signup" component={SignUp} />
+          <Route
+            path="/admin/signup"
+            component={() => <SignUp onCreateAdmin={onCreateAdmin} />}
+          />
           <Route path="/admin/add_student" component={AddStudent} />
           <Route path="/admin/edit_student" component={EditStudent} />
           <Route path="/dashboard" component={DashBoard} />
