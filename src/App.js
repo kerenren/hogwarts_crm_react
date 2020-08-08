@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import AddStudent from "./pages/AddStudent";
 import EditStudent from "./pages/EditStudent";
 import DashBoard from "./pages/DashBoard";
+import StudentContext from "./context/StudentContext";
 
 const loading = (
   <div className="pt-3 text-center">
@@ -19,6 +20,7 @@ function App() {
   const [currentAdmin, setAdmin] = useState({});
   const [currentStudentCredential, setCredential] = useState({});
   const [loginValidation, setLoginValidation] = useState("form-control");
+  const [student, setStudent] = useState({});
 
   const onCreateAdmin = (newAdmin) => {
     setAdmin(newAdmin);
@@ -35,26 +37,28 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route
-            path="/admin/log_in"
-            component={() => (
-              <Login onLogin={onLogin} loginValidation={loginValidation} />
-            )}
-          />
-          <Route
-            path="/admin/signup"
-            component={() => <SignUp onCreateAdmin={onCreateAdmin} />}
-          />
-          <Route path="/admin/add_student" component={AddStudent} />
-          <Route path="/admin/edit_student" component={EditStudent} />
-          <Route path="/dashboard" component={DashBoard} />
-        </Switch>
-      </Router>
-    </div>
+    <StudentContext.Provider value={{ student, setStudent }}>
+      <div className="App">
+        <Router>
+          <NavBar />
+          <Switch>
+            <Route
+              path="/admin/log_in"
+              component={() => (
+                <Login onLogin={onLogin} loginValidation={loginValidation} />
+              )}
+            />
+            <Route
+              path="/admin/signup"
+              component={() => <SignUp onCreateAdmin={onCreateAdmin} />}
+            />
+            <Route path="/admin/add_student" component={AddStudent} />
+            <Route path="/admin/edit_student" component={EditStudent} />
+            <Route path="/dashboard" component={DashBoard} />
+          </Switch>
+        </Router>
+      </div>
+    </StudentContext.Provider>
   );
 }
 

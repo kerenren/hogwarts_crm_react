@@ -27,16 +27,13 @@ const Navbar = () => {
       <CNavbarBrand href="/dashboard">Hogwarts CRM</CNavbarBrand>
       <CCollapse show={isOpen} navbar>
         <CNavbarNav>
-          <CNavLink href="/dashboard">Home</CNavLink>
-          <CNavLink>Profile</CNavLink>
+          <CNavLink href="/dashboard">dashboard</CNavLink>
+          <CNavLink href="/admin/add_student">Add new student</CNavLink>
         </CNavbarNav>
         <CNavbarNav className="ml-auto">
           <CForm inline>
             <CInput className="mr-sm-2" placeholder="Search" size="sm" />
-            <CButton
-              className={styles.SearchBtn}
-              type="submit"
-            >
+            <CButton className={styles.SearchBtn} type="submit">
               <i className="fas fa-search"></i>
             </CButton>
           </CForm>
@@ -53,7 +50,7 @@ const Navbar = () => {
               <CDropdownItem href="/admin/log_in">Login</CDropdownItem>
               <CDropdownItem>Logout</CDropdownItem>
               <CDropdownItem href="/admin/edit_student">
-                Edit profile
+                Edit student profile
               </CDropdownItem>
             </CDropdownMenu>
           </CDropdown>
