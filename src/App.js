@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import "./styles/style.scss";
@@ -16,15 +16,35 @@ const loading = (
 );
 
 function App() {
+  const [currentAdmin, setAdmin] = useState({});
+  const [currentStudentCredential, setCredential] = useState({});
+  const [loginValidation, setLoginValidation] = useState("form-control");
+
   const onCreateAdmin = (newAdmin) => {
+    setAdmin(newAdmin);
     console.log("newAdmin", newAdmin);
   };
+
+  // selfnote:  [currentStudentCredential, setCredential]  should be updated to [currentStudent, setStudent] after implemented with backend and enable to fetch data by get_student_by_email()
+  // server validation: if the response status is 200, it should set loginValidation to is-valid, otherwise it should be is-invalid
+  const onLogin = (userCredential) => {
+    setCredential(userCredential);
+    console.log("userCredential", userCredential);
+    // if server returned 200 status:
+    setLoginValidation("form-control is-valid");
+  };
+
   return (
     <div className="App">
       <Router>
         <NavBar />
         <Switch>
-          <Route path="/admin/log_in" component={Login} />
+          <Route
+            path="/admin/log_in"
+            component={() => (
+              <Login onLogin={onLogin} loginValidation={loginValidation} />
+            )}
+          />
           <Route
             path="/admin/signup"
             component={() => <SignUp onCreateAdmin={onCreateAdmin} />}
