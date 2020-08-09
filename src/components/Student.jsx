@@ -15,7 +15,7 @@ export default function Student({ students }) {
   const studentContext = useContext(StudentContext);
   const setStudent = studentContext.setStudent;
   const history = useHistory();
-  const onEditStudent = (event, student) => {
+  const onEditStudent = (student) => {
     setStudent(student.student);
     history.push("/admin/edit_student");
   };
@@ -45,9 +45,8 @@ export default function Student({ students }) {
               <CCol>
                 <button
                   className={styles.Edit}
-                  // href="/admin/edit_student"
-                  onClick={(event) => {
-                    onEditStudent(event, { student });
+                  onClick={() => {
+                    onEditStudent({ student });
                   }}
                 >
                   <i className="fas fa-user-edit"></i>

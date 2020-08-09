@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import StudentContext from "../context/StudentContext";
-import Jumbotron from "react-bootstrap/Jumbotron";
 
 export default function ProfileData() {
   const studentContext = useContext(StudentContext);
@@ -26,7 +25,10 @@ export default function ProfileData() {
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  <img src="/images/icons-wizard-hat.png" />
+                  <img
+                    src="/images/icons-wizard-hat.png"
+                    alt="wizard hat icon"
+                  />
                   Existing Skills
                 </button>
               </h2>
@@ -40,7 +42,7 @@ export default function ProfileData() {
             >
               <div className="card-body">
                 {student.existing_magic_skills.map((skill) => (
-                  <p>
+                  <p key={skill.index}>
                     {skill.name} {skill.level}
                   </p>
                 ))}
@@ -58,7 +60,7 @@ export default function ProfileData() {
                   aria-expanded="false"
                   aria-controls="collapseTwo"
                 >
-                  <img src="/images/icon-cauldron.png" />
+                  <img src="/images/icon-cauldron.png" alt="cauldron icon" />
                   Desired Skills
                 </button>
               </h2>

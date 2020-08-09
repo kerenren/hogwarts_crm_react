@@ -1,4 +1,4 @@
-const peiChartModel = [
+const pieChartInitialConfig = [
   {
     id: "Potion making",
     label: "Potion making",
@@ -43,4 +43,4 @@ const peiChartModel = [
   },
 ];
 
-export default peiChartModel
+export default pieChartInitialConfig;

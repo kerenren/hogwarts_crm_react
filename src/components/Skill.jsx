@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import uuid from "react-uuid";
 import Rating from "react-rating";
 import { CListGroupItem, CRow, CCol } from "@coreui/react";
