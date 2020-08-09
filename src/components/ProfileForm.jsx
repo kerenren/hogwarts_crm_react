@@ -15,7 +15,7 @@ import {
 } from "@coreui/react";
 import StudentContext from "../context/StudentContext";
 import { useLocation } from "react-router-dom";
-import { editStudent } from "../lib/api";
+import { editStudent, addStudent } from "../lib/api";
 
 export default function ProfileForm() {
   const studentContext = useContext(StudentContext);
@@ -56,6 +56,8 @@ export default function ProfileForm() {
     }
     if (location.pathname === "/admin/add_student") {
       console.log("request add_student() for server. post body:", student);
+      console.log(typeof student.id)
+      addStudent(student);
     }
   };
 

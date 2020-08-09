@@ -83,6 +83,7 @@ export default function DashBoard() {
           case "Apparate":
             skill.value = apparatePopularity;
             console.log("apparatePopularity value", skill.value);
+            break;
           case "Metamorphmagi":
             skill.value = metamorphmagiPopularity;
             break;
@@ -96,7 +97,7 @@ export default function DashBoard() {
       });
       setData(pieChartConfigedArray);
     };
-    
+
     setPopularity();
     configPieData();
   }, [students]);
