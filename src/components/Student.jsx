@@ -3,6 +3,7 @@ import { CListGroupItem, CRow, CCol } from "@coreui/react";
 import styles from "../styles/Student.module.css";
 import StudentContext from "../context/StudentContext";
 import { useHistory } from "react-router-dom";
+import { deleteStudent } from "../lib/api";
 
 export default function Student({ students }) {
   const studentsObj = students[0];
@@ -24,6 +25,11 @@ export default function Student({ students }) {
     setStudent(student.student);
     const studentEmail = student.student.email;
     history.push(`/students/${studentEmail}`);
+  };
+
+  const onDeleteStudent = (student) => {
+    deleteStudent(student.student);
+    history.go();
   };
 
   return (
@@ -53,7 +59,10 @@ export default function Student({ students }) {
                 </button>
               </CCol>
               <CCol>
-                <button className={styles.Edit} href="/admin/delete">
+                <button
+                  className={styles.Edit}
+                  onClick={() => onDeleteStudent({ student })}
+                >
                   <i className="fas fa-user-minus"></i>
                 </button>
               </CCol>

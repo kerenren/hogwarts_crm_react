@@ -36,3 +36,17 @@ export const addStudent = (student) => {
       console.log(err);
     });
 };
+
+export const deleteStudent = (student) => {
+  return axios
+    .delete(baseURL + "/admin/delete", {
+      headers: {
+        secrete_password: "88888",
+      },
+      data: student,
+    })
+    .then((response) => console.log(response))
+    .catch((err) => {
+      console.log(err);
+    });
+};
