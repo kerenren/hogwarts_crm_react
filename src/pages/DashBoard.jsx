@@ -1,10 +1,90 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import AllStudents from "../components/AllStudents";
 import DesiredSkillsPieChart from "../components/DesiredSkillsPieChart";
 import styles from "../styles/DashBoard.module.css";
 
 export default function DashBoard() {
-  //   const [students, setStudents] = useState([]);
+  useEffect(() => {
+    setPopularity();
+    configPieData();
+  }, []);
+
+  let potionMakingPopularity = 0;
+  let spellsPopularity = 0;
+  let quidditchPopularity = 0;
+  let animagusPopularity = 0;
+  let apparatePopularity = 0;
+  let metamorphmagiPopularity = 0;
+  let parseltonguePopulariy = 0;
+
+  const setPopularity = () => {
+    students.forEach((student) => {
+      const studentArray = Object.values(student);
+      studentArray.forEach((item) => {
+        const desiredSkills = item.desired_magic_skills;
+        desiredSkills.forEach((skill) => {
+          const name = skill.name;
+          const level = skill.level;
+          switch (name) {
+            case "Potion making":
+              potionMakingPopularity += level;
+              break;
+            case "Spells":
+              spellsPopularity += level;
+              break;
+            case "Quidditch":
+              quidditchPopularity += level;
+              break;
+            case "Animagus":
+              animagusPopularity += level;
+              break;
+            case "Apparate":
+              apparatePopularity += level;
+              break;
+            case "Metamorphmagi":
+              metamorphmagiPopularity += level;
+              break;
+            case "Parseltongue":
+              parseltonguePopulariy += level;
+              break;
+            default:
+              console.log("skill is not matching any cases");
+          }
+        });
+      });
+    });
+  };
+
+  const configPieData = () => {
+    data.forEach((skill) => {
+      switch (skill.label) {
+        case "Potion making":
+          skill.value = potionMakingPopularity;
+          break;
+        case "Spells":
+          skill.value = spellsPopularity;
+          break;
+        case "Quidditch":
+          skill.value = quidditchPopularity;
+          break;
+        case "Animagus":
+          skill.value = animagusPopularity;
+          break;
+        case "Apparate":
+          skill.value = apparatePopularity;
+          console.log("apparatePopularity value", skill.value);
+        case "Metamorphmagi":
+          skill.value = metamorphmagiPopularity;
+          break;
+        case "Parseltongue":
+          skill.value = parseltonguePopulariy;
+          break;
+        default:
+          console.log("not matching");
+      }
+    });
+  };
+
   return (
     <>
       <AllStudents students={students} />
@@ -59,7 +139,7 @@ const students = [
       desired_magic_skills: [
         {
           name: "Potion making",
-          level: 1,
+          level: 5,
         },
         {
           name: "Spells",
@@ -75,7 +155,7 @@ const students = [
         },
         {
           name: "Apparate",
-          level: 1,
+          level: 5,
         },
         {
           name: "Metamorphmagi",
@@ -118,7 +198,7 @@ const students = [
         },
         {
           name: "Metamorphmagi",
-          level: 2,
+          level: 5,
         },
         {
           name: "Parseltongue",
@@ -140,7 +220,7 @@ const students = [
         },
         {
           name: "Animagus",
-          level: 3,
+          level: 4,
         },
         {
           name: "Apparate",
@@ -209,7 +289,7 @@ const students = [
         },
         {
           name: "Animagus",
-          level: 3,
+          level: 5,
         },
         {
           name: "Apparate",
@@ -266,7 +346,7 @@ const students = [
       desired_magic_skills: [
         {
           name: "Potion making",
-          level: 1,
+          level: 4,
         },
         {
           name: "Spells",
@@ -282,7 +362,7 @@ const students = [
         },
         {
           name: "Apparate",
-          level: 1,
+          level: 5,
         },
         {
           name: "Metamorphmagi",
@@ -301,43 +381,43 @@ const data = [
   {
     id: "Potion making",
     label: "Potion making",
-    value: 106,
+    value: 0,
     color: "hsl(296, 70%, 50%)",
   },
   {
     id: "Spells",
     label: "Spells",
-    value: 203,
+    value: 0,
     color: "hsl(176, 70%, 50%)",
   },
   {
     id: "Quidditch",
     label: "Quidditch",
-    value: 568,
+    value: 0,
     color: "hsl(15, 70%, 50%)",
   },
   {
     id: "Animagus",
     label: "Animagus",
-    value: 487,
+    value: 0,
     color: "hsl(27, 70%, 50%)",
   },
   {
     id: "Apparate",
     label: "Apparate",
-    value: 496,
+    value: 0,
     color: "hsl(256, 70%, 50%)",
   },
   {
     id: "Metamorphmagi",
     label: "Metamorphmagi",
-    value: 395,
+    value: 0,
     color: "hsl(261, 70%, 50%)",
   },
   {
     id: "Parseltongue (talking with snakes)",
     label: "Parseltongue",
-    value: 785,
+    value: 0,
     color: "hsl(256, 70%, 50%)",
   },
 ];

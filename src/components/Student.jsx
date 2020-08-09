@@ -33,7 +33,7 @@ export default function Student({ students }) {
                 </a>
               </CCol>
               <CCol>
-                <buton
+                <button
                   className={styles.Edit}
                   // href="/admin/edit_student"
                   onClick={(event) => {
@@ -41,12 +41,12 @@ export default function Student({ students }) {
                   }}
                 >
                   <i className="fas fa-user-edit"></i>
-                </buton>
+                </button>
               </CCol>
               <CCol>
-                <a className={styles.Edit} href="/admin/delete">
+                <button className={styles.Edit} href="/admin/delete">
                   <i className="fas fa-user-minus"></i>
-                </a>
+                </button>
               </CCol>
             </CRow>
           </CListGroupItem>
