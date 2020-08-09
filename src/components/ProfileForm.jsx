@@ -15,6 +15,7 @@ import {
 } from "@coreui/react";
 import StudentContext from "../context/StudentContext";
 import { useLocation } from "react-router-dom";
+import { editStudent } from "../lib/api";
 
 export default function ProfileForm() {
   const studentContext = useContext(StudentContext);
@@ -51,7 +52,7 @@ export default function ProfileForm() {
       return { ...student, last_updated_time: new Date().toISOString() };
     });
     if (location.pathname === "/admin/edit_student") {
-      console.log("request edit_student() for server. post body:", student);
+      editStudent(student);
     }
     if (location.pathname === "/admin/add_student") {
       console.log("request add_student() for server. post body:", student);
@@ -116,6 +117,7 @@ export default function ProfileForm() {
                   autoComplete="username"
                   onChange={handleEmailChange}
                   value={student.email}
+                  disabled={location.pathname === "/admin/edit_student"}
                 />
               </CInputGroup>
             </CFormGroup>
