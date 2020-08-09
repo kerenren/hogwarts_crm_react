@@ -9,6 +9,7 @@ import AddStudent from "./pages/AddStudent";
 import EditStudent from "./pages/EditStudent";
 import DashBoard from "./pages/DashBoard";
 import StudentContext from "./context/StudentContext";
+import ProfileData from "./pages/ProfileData";
 
 const loading = (
   <div className="pt-3 text-center">
@@ -55,6 +56,7 @@ function App() {
             <Route path="/admin/add_student" component={AddStudent} />
             <Route path="/admin/edit_student" component={EditStudent} />
             <Route path="/dashboard" component={DashBoard} />
+            <Route path="/students" component={ProfileData} />
           </Switch>
         </Router>
       </div>
