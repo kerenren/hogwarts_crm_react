@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 export default function Student({ students }) {
   const studentsObj = students[0];
   const studentsArray = Object.values(studentsObj);
-  console.log(studentsArray);
+
   // pathfor get student data dashbord:  /students/<string:student_email> => student email is required
   // path for edit student: /admin/edit_student => student obj is inside student.student
   // path for delete student: /admin/delete => student json data is required
